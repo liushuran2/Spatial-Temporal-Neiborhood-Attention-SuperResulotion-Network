@@ -1,0 +1,30 @@
+#model settings
+scale: 3
+in_channels: 96                           #number of channels in residual blocks
+num_input_frame: 7
+encoder_nblocks: 2                         #number of FCA block in the encoder
+decoder_nblocks: 6                        #number of FCA block in the decoder
+
+
+
+#dataset settings
+dataset_path: train.h5          #dataset path
+valid_dataset_path: test.h5
+patch_size: 128                             #patch size for training, should be the same as width/height above
+num_workers: 0                             #number of threads in the dataloader
+
+
+#training settings
+device: !!str 7                            #GPU ids used for training
+batchsize: 2                              #batchsize
+checkpoint_folder: checkpt/exp       #the folder to save checkpoint
+checkpoint_name: checkptx2.pt                #filename of checkpoint
+hot_start: 0                              #0 for training from scratch, 1 for resume from a checkpoint
+hot_start_checkpt: checkpt/checkptbest.pt      #checkpoint used to resume training, if hot_start=0, this is ignored
+epoch: 36000                               #number of training epochs, set to a large number and manually stop training if needed
+stage1: 30000                              #number of iterations for stage 1
+stage2: 80000                              #number of iterations for stage 2
+stage3: 90000                              #number of iterations for stage 3
+N_save_checkpt: 300                       #840save checkpoint every N_save_checkpt iterations
+
+#testing settings
