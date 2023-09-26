@@ -6,7 +6,6 @@ from tqdm import tqdm
 import torch.nn.functional as F
 import math
 from torch.utils.tensorboard import SummaryWriter
-
 parser = argparse.ArgumentParser(description='Input a config file.')
 parser.add_argument('--config', help='Config file path')
 args = parser.parse_args()
