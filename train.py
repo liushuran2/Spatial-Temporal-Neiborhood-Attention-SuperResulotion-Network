@@ -165,5 +165,5 @@ for epoch in range(0, config['epoch']):
     writer.add_scalar('Train/l1loss', torch.mean(torch.stack(loss_list2)), epoch)
     if count > stage3:
         scheduler.step()
-        writer.add_scalar('Train/leaning rate', scheduler.get_last_lr()[0], epoch)
+        writer.add_scalar('Train/lr', scheduler.get_last_lr()[0], epoch)
 writer.close()
